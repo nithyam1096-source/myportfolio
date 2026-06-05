@@ -1,0 +1,28 @@
+{% load static %}
+<section id="skills" class="section skills-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="section-subtitle">My Skills</span>
+            <h2 class="section-title">Technical <span class="gradient-text">Expertise</span></h2>
+            <p class="section-description">Technologies and tools I've worked with</p>
+        </div>
+        <div class="skills-container">
+            {% for skill in skills %}
+            <div class="skill-card" data-proficiency="{{ skill.proficiency }}">
+                <div class="skill-icon">
+                    <i class="{{ skill.icon_class }}"></i>
+                </div>
+                <h4 class="skill-name">{{ skill.name }}</h4>
+                <div class="skill-progress">
+                    <div class="skill-progress-bar" style="width: {{ skill.proficiency }}%"></div>
+                </div>
+                <span class="skill-percentage">{{ skill.proficiency }}%</span>
+            </div>
+            {% empty %}
+            <div class="text-center text-muted py-5">
+                <p>No skills added yet. Add skills from the admin panel.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

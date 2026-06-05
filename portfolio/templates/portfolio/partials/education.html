@@ -1,0 +1,73 @@
+{% load static %}
+<section id="education" class="section education-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="section-subtitle">Education & Certifications</span>
+            <h2 class="section-title">My Academic <span class="gradient-text">Background</span></h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-7">
+                <h3 class="subsection-title">
+                    <i class="fas fa-graduation-cap me-2"></i>Education
+                </h3>
+                <div class="timeline">
+                    {% for edu in educations %}
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="{{ edu.icon_class }}"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">{{ edu.year_passed }}</div>
+                            <h4>{{ edu.degree }}</h4>
+                            <p class="timeline-institution">{{ edu.institution }}</p>
+                            <p class="timeline-detail">{{ edu.university }} | CGPA: {{ edu.cgpa }}</p>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="text-muted">No education details added.</div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <h3 class="subsection-title">
+                    <i class="fas fa-certificate me-2"></i>Certifications
+                </h3>
+                <div class="certifications-list">
+                    {% for cert in certifications %}
+                    <div class="cert-card">
+                        <div class="cert-icon">
+                            <i class="{{ cert.icon_class }}"></i>
+                        </div>
+                        <div class="cert-details">
+                            <h5>{{ cert.title }}</h5>
+                            <p class="cert-issuer">{{ cert.issuer }}</p>
+                            {% if cert.credential_url %}
+                            <a href="{{ cert.credential_url }}" target="_blank" class="cert-link">
+                                View Credential <i class="fas fa-external-link-alt ms-1"></i>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="text-muted">No certifications added yet.</div>
+                    {% endfor %}
+                </div>
+
+                {% if resume and resume.resume_file %}
+                <div class="resume-download-card mt-4">
+                    <div class="resume-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="resume-info">
+                        <h5>Download Resume</h5>
+                        <p>Get my full resume with complete details</p>
+                    </div>
+                    <a href="{{ resume.resume_file.url }}" class="btn btn-primary" download>
+                        <i class="fas fa-download me-2"></i>Download CV
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

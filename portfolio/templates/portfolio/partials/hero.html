@@ -1,0 +1,85 @@
+{% load static %}
+<section id="home" class="hero-section">
+    <div class="hero-bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-7 hero-content">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-title">Nithya M</h1>
+                <div class="hero-typing-wrapper">
+                    <span class="hero-typing-prefix">I'm a </span>
+                    <span id="typing-text" class="hero-typing"></span>
+                    <span class="typing-cursor">|</span>
+                </div>
+                <p class="hero-description">
+                    A passionate Python Full Stack Developer transitioning from Agriculture Engineering 
+                    to the world of software development. I bring a unique perspective of precision, 
+                    analysis, and problem-solving from my engineering background into every project I build.
+                </p>
+                <div class="hero-buttons">
+                    {% if resume and resume.resume_file %}
+                    <a href="{{ resume.resume_file.url }}" class="btn btn-primary btn-glow" download>
+                        <i class="fas fa-download me-2"></i>Download Resume
+                    </a>
+                    {% endif %}
+                    <a href="#contact" class="btn btn-outline-light">
+                        <i class="fas fa-envelope me-2"></i>Contact Me
+                    </a>
+                    <a href="#projects" class="btn btn-outline-light">
+                        <i class="fas fa-code me-2"></i>View Projects
+                    </a>
+                </div>
+                <div class="hero-social mt-4">
+                    <a href="mailto:nithyam1096@gmail.com" class="social-icon" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://github.com/" target="_blank" class="social-icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5 hero-image-wrapper">
+                <div class="hero-image-frame">
+                    <div class="hero-image-inner">
+                        {% if resume and resume.profile_image %}
+                        <img src="{{ resume.profile_image.url }}" alt="Nithya M" class="hero-profile-img">
+                        {% else %}
+                        <div class="hero-profile-placeholder">
+                            <span>NM</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="hero-image-decoration"></div>
+                </div>
+                <div class="floating-badge badge-1">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="floating-badge badge-2">
+                    <i class="fab fa-angular"></i>
+                    <span>Django</span>
+                </div>
+                <div class="floating-badge badge-3">
+                    <i class="fas fa-code"></i>
+                    <span>Full Stack</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <div class="mouse">
+            <div class="wheel"></div>
+        </div>
+        <div class="scroll-text">Scroll Down</div>
+    </div>
+</section>
