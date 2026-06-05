@@ -1,0 +1,9 @@
+venv/
+.env
+db.sqlite3
+*.pyc
+__pycache__/
+media/
+staticfiles/
+server_output.txt
+server_error.txt
